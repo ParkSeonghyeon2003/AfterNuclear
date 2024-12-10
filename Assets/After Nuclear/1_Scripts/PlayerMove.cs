@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    Rigidbody2D rigid;
     SpriteRenderer spriter;
+    Rigidbody2D rigid;
     Animator anim;
 
     public float maxSpeed; // 최대 속도
@@ -15,13 +15,18 @@ public class PlayerMove : MonoBehaviour
 
     void Awake()
     {
-        rigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
+        rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            GameManager.Instance.TriggerInventory();
+        }
+
         if (Input.GetButtonDown("Jump") && !anim.GetBool("IsJumping"))
         {
             rigid.AddForce(Vector3.up * jumpPower, ForceMode2D.Impulse);
@@ -53,8 +58,8 @@ public class PlayerMove : MonoBehaviour
         if (rigid.velocity.x < maxSpeed * (-1))
             rigid.velocity = new Vector2(maxSpeed * (-1), rigid.velocity.y);
 
-        Debug.DrawRay(rigid.position, Vector2.down * 2, new Color(1, 0, 0));
-        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector2.down, 1.2f, LayerMask.GetMask("Platform"));
+        Debug.DrawRay(rigid.position, Vector2.down * 1.3f, new Color(1, 0, 0));
+        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector2.down, 1.3f, LayerMask.GetMask("Platform"));
         if (rigid.velocity.y < 0.0f)
         {
             if (rayHit.collider != null)
