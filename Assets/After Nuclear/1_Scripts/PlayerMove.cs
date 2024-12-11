@@ -8,8 +8,8 @@ public class PlayerMove : MonoBehaviour
     Rigidbody2D rigid;
     Animator anim;
 
-    public float maxSpeed; // ÃÖ´ë ¼Óµµ
-    public float jumpPower; // Á¡ÇÁ ÆÄ¿ö
+    public float maxSpeed; // ìµœëŒ€ ì†ë„
+    public float jumpPower; // ì í”„ íŒŒì›Œ
 
     float horizontal;
 

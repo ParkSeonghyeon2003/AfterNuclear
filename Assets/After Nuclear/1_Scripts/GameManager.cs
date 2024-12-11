@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
                 _instance = FindObjectOfType(typeof(GameManager)) as GameManager;
 
                 if (_instance != null)
-                    Debug.LogError("GameManager ½Ì±ÛÅæ °´Ã¼°¡ ¾øÀ½.");
+                    Debug.LogError("GameManager ì‹±ê¸€í†¤ ê°ì²´ê°€ ì—†ìŒ.");
             }
             return _instance;
         }

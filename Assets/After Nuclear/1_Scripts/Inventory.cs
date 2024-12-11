@@ -45,7 +45,7 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            print("½½·ÔÀÌ °¡µæ Â÷ ÀÖ½À´Ï´Ù.");
+            print("ìŠ¬ë¡¯ì´ ê°€ë“ ì°¨ ìˆìŠµë‹ˆë‹¤.");
         }
     }
 }
