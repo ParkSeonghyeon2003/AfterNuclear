@@ -48,4 +48,14 @@ public class Inventory : MonoBehaviour
             print("슬롯이 가득 차 있습니다.");
         }
     }
+
+    public bool FindItem(string itemName)
+    {
+        foreach (Slot slot in slots)
+        {
+            if (slot == null) continue;
+            if (slot.item.itemName == itemName) return true;
+        }
+        return false;
+    }
 }

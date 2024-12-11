@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     [Header("# GUI Objects")]
     public GameObject inventory;
+    public GameObject crafting;
 
     public static GameManager Instance
     {
@@ -47,5 +49,21 @@ public class GameManager : MonoBehaviour
     public void TriggerInventory()
     {
         inventory.SetActive(!inventory.activeSelf);
+    }
+
+    public void OpenCrafting()
+    {
+        crafting.SetActive(true);
+        Inventory inv = inventory.GetComponent<Inventory>();
+        // if (inv.FindItem("battery") && inv.FindItem("mainboard") && inv.FindItem("transmitter"))
+        // {
+        //     Sprite[] sprite = Resources.LoadAll<Sprite>("GUI_Parts/Gui_parts/Button_agree");
+        //     crafting.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = sprite[0];
+        // }
+    }
+
+    public void CloseCrafting()
+    {
+        crafting.SetActive(false);
     }
 }
